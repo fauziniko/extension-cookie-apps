@@ -13,7 +13,17 @@
         <p>Pilih tindakan:</p>
         <button id="save-cookie">Simpan Cookie</button>
         <button id="open-app">Buka Aplikasi</button>
+        <button id="update-app">Perbarui Aplikasi</button>
+        <button id="delete-app">Hapus Aplikasi</button>
     </div>
+    <hr>
+    <h3>Tambah Aplikasi</h3>
+    <form id="add-app-form">
+        <input type="text" id="app-name" placeholder="Nama Aplikasi" required>
+        <input type="url" id="app-link" placeholder="Link Aplikasi" required>
+        <input type="file" id="app-icon" accept="image/*" required>
+        <button type="submit">Tambah Aplikasi</button>
+    </form>
     <script src="popup.js"></script>
 </body>
 </html>

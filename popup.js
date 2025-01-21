@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let appsContainer = document.getElementById("apps-container");
         appsContainer.innerHTML = ""; // Clear existing apps
 
-        apps.forEach(app => {
+        apps.forEach((app, index) => {
             let appElement = document.createElement("div");
             appElement.className = "app";
             appElement.innerHTML = `
@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("options-container").style.display = "block";
                 document.getElementById("save-cookie").onclick = () => saveCookies(app);
                 document.getElementById("open-app").onclick = () => openApp(app);
+                document.getElementById("update-app").onclick = () => updateApp(index);
+                document.getElementById("delete-app").onclick = () => deleteApp(index);
             });
 
             appsContainer.appendChild(appElement);
@@ -65,5 +67,35 @@ document.addEventListener("DOMContentLoaded", () => {
             alert(response.message);
         });
         window.open(app.link, "_blank");
+    }
+
+    function updateApp(index) {
+        chrome.storage.local.get(['apps'], (result) => {
+            const apps = result.apps || [];
+            const appToUpdate = apps[index];
+
+            const name = prompt("Perbarui Nama Aplikasi:", appToUpdate.name);
+            const link = prompt("Perbarui Link Aplikasi:", appToUpdate.link);
+
+            const iconFile = prompt("Perbarui Ikon Aplikasi (masukkan URL gambar baru):");
+            const icon = iconFile ? iconFile : appToUpdate.icon;
+
+            if (name && link) {
+                apps[index] = { name, link, icon };
+                chrome.storage.local.set({ apps }, () => {
+                    displayApps(apps);
+                });
+            }
+        });
+    }
+
+    function deleteApp(index) {
+        chrome.storage.local.get(['apps'], (result) => {
+            const apps = result.apps || [];
+            apps.splice(index, 1);
+            chrome.storage.local.set({ apps }, () => {
+                displayApps(apps);
+            });
+        });
     }
 });
