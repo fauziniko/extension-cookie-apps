@@ -7,23 +7,24 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h2>Aplikasi</h2>
-    <div id="apps-container"></div>
-    <div id="options-container" style="display: none;">
-        <p>Pilih tindakan:</p>
-        <button id="save-cookie">Simpan Cookie</button>
-        <button id="open-app">Buka Aplikasi</button>
-        <button id="update-app">Perbarui Aplikasi</button>
-        <button id="delete-app">Hapus Aplikasi</button>
+    <div class="container">
+        <h2>Pengaturan MinIO</h2>
+        <div class="settings">
+            <p><strong>URL MinIO:</strong> <span id="minio-url"></span></p>
+            <p><strong>Bucket:</strong> <span id="bucket-name"></span></p>
+        </div>
+
+        <h2>Tambah Aplikasi</h2>
+        <form id="add-app-form" class="app-form">
+            <input type="text" id="app-name" placeholder="Nama Aplikasi" required /><br>
+            <input type="url" id="app-url" placeholder="URL Aplikasi" required /><br>
+            <input type="file" id="app-icon" accept="image/png" /><br>
+            <button type="submit">Tambah Aplikasi</button>
+        </form>
+
+        <h2>Aplikasi yang Disimpan</h2>
+        <div id="apps-container" class="apps-grid"></div>
     </div>
-    <hr>
-    <h3>Tambah Aplikasi</h3>
-    <form id="add-app-form">
-        <input type="text" id="app-name" placeholder="Nama Aplikasi" required>
-        <input type="url" id="app-link" placeholder="Link Aplikasi" required>
-        <input type="file" id="app-icon" accept="image/*" required>
-        <button type="submit">Tambah Aplikasi</button>
-    </form>
     <script src="popup.js"></script>
 </body>
 </html>
