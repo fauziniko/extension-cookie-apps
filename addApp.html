@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Aplikasi</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h2>Tambah Aplikasi Baru</h2>
+    <form id="addAppForm">
+        <label for="appName">Nama Aplikasi:</label><br>
+        <input type="text" id="appName" required><br><br>
+
+        <label for="appIcon">Pilih Icon Aplikasi:</label><br>
+        <input type="file" id="appIcon" accept="image/png" required><br><br>
+
+        <label for="appDomain">Domain Aplikasi:</label><br>
+        <input type="text" id="appDomain" required><br><br>
+
+        <button type="submit">Tambah Aplikasi</button>
+    </form>
+
+    <script src="addApp.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#apps-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.app {
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.app img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.app span {
+    display: block;
+    font-size: 12px;
+    margin-top: 3px;
+    color: white;
+}
+
+.app:hover {
+    transform: scale(1.1);
+    filter: brightness(1.5);
+}
+
+.app:active {
+    transform: scale(0.95);
+    filter: brightness(0.7);
+}
+
+#options-container {
+    margin-top: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+form input, form button {
+    margin-top: 10px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #008CBA;
+}
